@@ -5,6 +5,7 @@ export class HeroesService {
 
   private heroes: Hero[] = [
     {
+      index: 0,
       nombre: 'Aquaman',
       bio: 'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a ' +
       'grandes distancias.',
@@ -13,6 +14,7 @@ export class HeroesService {
       casa: 'DC'
     },
     {
+      index: 1,
       nombre: 'Batman',
       bio: 'Los rasgos principales de Batman se resumen en «destreza física, habilidades deductivas y obsesión». La mayor parte de las ' +
       'características básicas de los cómics han variado por las diferentes interpretaciones que le han dado al personaje.',
@@ -21,6 +23,7 @@ export class HeroesService {
       casa: 'DC'
     },
     {
+      index: 2,
       nombre: 'Daredevil',
       bio: 'Al haber perdido la vista, los cuatro sentidos restantes de Daredevil fueron aumentados por la radiación a niveles ' +
       'superhumanos, en el accidente que tuvo cuando era niño. A pesar de su ceguera, puede "ver" a través de un "sexto sentido" que le ' +
@@ -30,6 +33,7 @@ export class HeroesService {
       casa: 'Marvel'
     },
     {
+      index: 3,
       nombre: 'Hulk',
       bio: 'Su principal poder es su capacidad de aumentar su fuerza hasta niveles prácticamente ilimitados a la vez que aumenta su ' +
       'furia. Dependiendo de qué personalidad de Hulk esté al mando en ese momento (el Hulk Banner es el más débil, pero lo compensa ' +
@@ -39,6 +43,7 @@ export class HeroesService {
       casa: 'Marvel'
     },
     {
+      index: 4,
       nombre: 'Linterna Verde',
       bio: 'Poseedor del anillo de poder que posee la capacidad de crear manifestaciones de luz sólida mediante la utilización del ' +
       'pensamiento. Es alimentado por la Llama Verde (revisada por escritores posteriores como un poder místico llamado Starheart), una ' +
@@ -49,6 +54,7 @@ export class HeroesService {
       casa: 'DC'
     },
     {
+      index: 5,
       nombre: 'Spider-Man',
       bio: 'Tras ser mordido por una araña radiactiva, obtuvo los siguientes poderes sobrehumanos, una gran fuerza, agilidad, poder ' +
       'trepar por paredes. La fuerza de Spider-Man le permite levantar 10 toneladas o más. Gracias a esta gran fuerza Spider-Man puede ' +
@@ -59,6 +65,7 @@ export class HeroesService {
       casa: 'Marvel'
     },
     {
+      index: 6,
       nombre: 'Wolverine',
       bio: 'En el universo ficticio de Marvel, Wolverine posee poderes regenerativos que pueden curar cualquier herida, por mortal que ' +
       'ésta sea, además ese mismo poder hace que sea inmune a cualquier enfermedad existente en la Tierra y algunas extraterrestres . ' +
@@ -86,8 +93,11 @@ export class HeroesService {
     const heroesArray: Hero[] = [];
     criteria = criteria.toLowerCase();
 
-    for (const hero of this.heroes) {
+    for (let i = 0; i < this.heroes.length; i++) {
+      const hero = this.heroes[i];
+
       if (hero.nombre.toLowerCase().indexOf(criteria) >= 0) {
+        hero.index = i;
         heroesArray.push(hero);
       }
     }
@@ -102,4 +112,5 @@ export interface Hero {
   img: string;
   aparicion: string;
   casa: string;
+  index: number;
 }
