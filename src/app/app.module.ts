@@ -11,6 +11,7 @@ import {HerosComponent} from './components/heros/heros.component';
 import {APP_ROUTING} from './app.routes'
 import {HeroesService} from './services/heroes.service';
 import { HeroComponent } from './components/hero/hero.component';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
 // services
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HeroComponent } from './components/hero/hero.component';
     HomeComponent,
     AboutComponent,
     HerosComponent,
-    HeroComponent
+    HeroComponent,
+    HeroCardComponent
   ],
   imports: [
     BrowserModule,

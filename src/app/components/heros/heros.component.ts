@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 export class HerosComponent implements OnInit {
 
   heroes: Hero[];
+  searchString: string;
 
   constructor(private activatedRouter: ActivatedRoute,
               private _heroesService: HeroesService) {
@@ -19,6 +20,7 @@ export class HerosComponent implements OnInit {
 
     this.activatedRouter.params.subscribe(params => {
       if (params['criteria']) {
+        this.searchString = params['criteria'];
         this.heroes = this._heroesService.searchHeroes(params['criteria']);
       } else {
         this.heroes = this._heroesService.getHeroes();
